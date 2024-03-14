@@ -1,0 +1,7 @@
+{
+    "copyData": [
+        {"name": "projectId", "required": true},
+        {"name": "rawData", "required": true},
+        {"name": "writePermission", "required": false}
+    ]
+}
