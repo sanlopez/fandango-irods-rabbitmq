@@ -30,8 +30,6 @@ def execute_function(action, provided_args):
         if all(arg['name'] in provided_args for arg in required_args if arg['required']):
             # depending on the action, do one thing or another
             if action == 'copyData':
-                print("provided_args.get('writePermission')")
-                print(provided_args.get('writePermission'))
                 success, info = copy_data(provided_args['projectId'], provided_args['rawData'], True if provided_args.get('writePermission', '').lower() == 'yes' else False)
         else:
             print(f"Not all required args ({', '.join(required_args)}) provided for action {action}")
@@ -71,8 +69,6 @@ def copy_data(project_id, raw_data_path, write_permission=False):
             # create ticket for retrieving the data
             print(f'Creating ticket for project {project_id}...')
             new_ticket = Ticket(session)
-            print("write_permission")
-            print(write_permission)
             ticket_id = new_ticket.issue(permission='write' if write_permission else 'read',
                                          target=new_collection).string
             print(f'... ticket generated with id {ticket_id}...')

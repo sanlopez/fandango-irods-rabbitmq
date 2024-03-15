@@ -1,4 +1,3 @@
 pika
-jsonschema
 python-irodsclient
 mysql-connector-python
